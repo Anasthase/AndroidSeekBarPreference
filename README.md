@@ -1,7 +1,7 @@
 # SeekBarPreference for Android
 
-A preference which display a SeekBar, and store the value as `int`.
-Support minimum and maximum values (positive or null), and steps.
+Android preference which allow users to change a ranged integer setting through a SeekBar, and store the value as `int`.
+It supports minimum and maximum values (positive or null), and steps.
 
 ![Screenshot](https://raw.githubusercontent.com/Anasthase/AndroidSeekBarPreference/master/screenshot.png)
 
@@ -43,11 +43,23 @@ Add `xmlns:app="http://schemas.android.com/apk/res-auto"` along with the `xmlns:
 ```
 
 Where:
-* `minValue`: The minimum value of your preference.
-* `maxValue`: The maximum value of your preference.
-* `stepValue`: The value of the steps allowed for your preference.
-* `format`: The formatting string of the current value. If specified, must be a valid format string, as expected by `String.format()`. If not, only the value will be displayed. If `null`, the current value will not be displayed.
+* `minValue`: The minimum value for the setting.
+* `maxValue`: The maximum value for the setting.
+* `stepValue`: The step value for for the setting.
+* `format`: The formatting string of the current value. If specified, must be a valid format string, as expected by `String.format()`, otherwise only the value will be displayed. If `null`, the current value will not be displayed.
 
-### Edge cases
-* If `defaultValue` is lesser than `minValue` or greater than `maxValue`, it will be equal to `minValue`
+Be aware of the following edge cases:
+* If `minValue` is lesser than 0, it will be set to 0
+* If `maxValue` is lesser than or equal to `minValue`, it will be set to `minValue + 1`
+* If `defaultValue` is lesser than (respectively greater than) `minValue` (respectively `maxValue`), it will be set to `minValue` (respectively `maxValue`)
 * If the current stored preference value if lesser than (respectively greater than) `minValue` (respectively `maxValue`), it will be displayed as `minValue` (respectively `maxValue`)
+
+### In code
+
+`SeekBarPreference` store the setting value as `int`. Therefore, `SharedPreferences`'s `getInt()` method must be used to retrieve setting value, and `SharedPreferences.Editor`'s `putInt()` method must be used to set setting value.
+
+## Advanced usage
+
+As for any Android `Preference`, title and summary can be accessed through their accessors. All other parameters (minimum value, maximum value, current value, step value, format string) also have dedicated accessors.
+
+An `SeekBar.OnSeekBarChangeListener` listener can also be registered through the `setOnSeekBarChangeListener()` method to monitor `SeekBar` events.

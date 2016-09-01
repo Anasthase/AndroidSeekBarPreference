@@ -3,8 +3,8 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
 group = "org.anasthase"
-// When changing version, versionCode below must also be increased, and the new version string
-// specified in aboutlibraries_strings.xml.
+// When changing version, versionCode below must be increased, the new version string specified
+// in aboutlibraries_strings.xml changed, and the gradle configuration string changed in README.md.
 version = "1.0"
 
 android {
