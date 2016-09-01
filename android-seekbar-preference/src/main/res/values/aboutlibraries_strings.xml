@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="define_AndroidSeekBarPreference"></string>
+    <string name="library_AndroidSeekBarPreference_author">Anasthase</string>
+    <string name="library_AndroidSeekBarPreference_authorWebsite">https://github.com/Anasthase/</string>
+    <string name="library_AndroidSeekBarPreference_libraryName">AndroidSeekBarPreference</string>
+    <string name="library_AndroidSeekBarPreference_libraryDescription">An Android preference which allow users to change a ranged integer setting through a SeekBar.</string>
+    <string name="library_AndroidSeekBarPreference_libraryVersion">1.0</string>
+    <string name="library_AndroidSeekBarPreference_libraryWebsite">https://github.com/Anasthase/AndroidSeekBarPreference/</string>
+    <string name="library_AndroidSeekBarPreference_licenseId">apache_2_0</string>
+    <string name="library_AndroidSeekBarPreference_isOpenSource">true</string>
+    <string name="library_AndroidSeekBarPreference_repositoryLink">https://github.com/Anasthase/AndroidSeekBarPreference/</string>
+</resources>
