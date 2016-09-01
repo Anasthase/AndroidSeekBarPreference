@@ -58,15 +58,17 @@ import android.widget.TextView;
  * 
  * <p>Where:</p>
  * <ul>
- * <li><code>minValue</code>: The minimum value of your preference.</li>
- * <li><code>maxValue</code>: The maximum value of your preference.</li>
- * <li><code>stepValue</code>: The value of the steps allowed for your preference.</li>
- * <li><code>format</code>: The formatting string of the current value. If specified, must be a valid format string, as expected by <code>String.format()</code>. If not, only the value will be displayed. If <code>null</code>, the current value will not be displayed.</li>
+ * <li><code>minValue</code>: The minimum value for the setting.</li>
+ * <li><code>maxValue</code>: The maximum value for the setting.</li>
+ * <li><code>stepValue</code>: The step value for for the setting.</li>
+ * <li><code>format</code>: The formatting string of the current value. If specified, must be a valid format string, as expected by <code>String.format()</code>, otherwise only the value will be displayed. If <code>null</code>, the current value will not be displayed.</li>
  * </ul>
  *
  * <p>Edge cases:</p>
  * <ul>
- *     <li>If <code>defaultValue</code> is lesser than <code>minValue</code> or greater than <code>maxValue</code>, it will be equal to <code>minValue</code></li>
+ *     <li>If <code>minValue</code> is lesser than 0, it will be set to 0</li>
+ *     <li>If <code>maxValue</code> is lesser than or equal to <code>minValue</code>, it will be set to <code>minValue + 1</code></li>
+ *     <li>If <code>defaultValue</code> is lesser than (respectively greater than) <code>minValue</code> (respectively <code>maxValue</code>), it will be set to <code>minValue</code> (respectively <code>maxValue</code>)</li>
  *     <li>If the current stored preference value if lesser than (respectively greater than) <code>minValue</code> (respectively <code>maxValue</code>), it will be displayed as <code>minValue</code> (respectively <code>maxValue</code>)</li>
  * </ul>
  */
@@ -110,12 +112,18 @@ public class SeekBarPreference extends Preference {
 
 			mDefaultValue = a.getInt(R.styleable.SeekBarPreference_android_defaultValue, 0);
 
+            if (mMinValue < 0) {
+                mMinValue = 0;
+            }
+
 			if (mMaxValue <= mMinValue) {
 				mMaxValue = mMinValue + 1;
 			}
 
 			if (mDefaultValue < mMinValue) {
 				mDefaultValue = mMinValue;
+			} else if (mDefaultValue > mMaxValue) {
+				mDefaultValue = mMaxValue;
 			}
 
 			if (mStepValue <= 0) {
@@ -381,7 +389,9 @@ public class SeekBarPreference extends Preference {
 	}
 
 	private void saveValue() {		
-		PreferenceManager.getDefaultSharedPreferences(getContext()).edit().putInt(getKey(), getValue()).apply();
+		PreferenceManager.getDefaultSharedPreferences(getContext()).edit()
+                .putInt(getKey(), getValue())
+                .apply();
 	}
 
 }

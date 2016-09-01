@@ -3,15 +3,17 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
 group = "org.anasthase"
+// When changing version, versionCode below must also be increased, and the new version string
+// specified in aboutlibraries_strings.xml.
 version = "1.0"
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "24.0.1"
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
 
     defaultConfig {
-        minSdkVersion 17
-        targetSdkVersion 23
+        minSdkVersion 16
+        targetSdkVersion 24
         versionCode 1
         versionName version
 
@@ -37,7 +39,7 @@ install {
                 packaging 'aar'
 
                 // Add your description here
-                name 'An Android preference which display a SeekBar, and store the value as int.'
+                name 'An Android preference which allow users to change a ranged integer setting through a SeekBar, and store the value as int.'
                 url siteUrl
 
                 // Set your license
@@ -88,8 +90,6 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:23.4.0'
-    testCompile 'junit:junit:4.12'
 }
 
 task sourcesJar(type: Jar) {
