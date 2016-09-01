@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">SeekBarPreference demo</string>
+    <string name="app_description">An application demonstrating the Android SeekBarPreference library.</string>
+    <string name="action_about">About</string>
 
     <string name="Preference1Title">Example 1</string>
     <string name="Preference1Summary">A preference starting from 5 to 25, with a step of 1.</string>

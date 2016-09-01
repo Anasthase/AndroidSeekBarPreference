@@ -3,11 +3,17 @@ package org.anasthase.androidseekbarpreference.demo;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
+import android.view.Menu;
+import android.view.MenuItem;
+
+import com.mikepenz.aboutlibraries.Libs;
+import com.mikepenz.aboutlibraries.LibsBuilder;
 
 /**
  * A {@link PreferenceActivity} that presents a set of application settings. On
@@ -41,6 +47,35 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                         android.R.id.content,
                         new GeneralPreferenceFragment())
                 .commit();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.options_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent i;
+
+        switch (item.getItemId()) {
+            case R.id.action_about:
+                new LibsBuilder()
+                        .withActivityStyle(Libs.ActivityStyle.LIGHT_DARK_TOOLBAR)
+                        .withActivityTitle(getString(R.string.action_about))
+                        .withAboutAppName(getString(R.string.app_name))
+                        .withAboutDescription(getString(R.string.app_description))
+                        .withAboutIconShown(true)
+                        .withAboutVersionShown(true)
+                        .withLicenseShown(true)
+                        .withVersionShown(true)
+                        .start(this);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     /**
