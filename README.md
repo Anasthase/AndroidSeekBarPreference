@@ -3,6 +3,8 @@
 A preference which display a SeekBar, and store the value as `int`.
 Support minimum values greater than 0, and "step" values.
 
+![Screenshot](https://raw.githubusercontent.com/Anasthase/AndroidSeekBarPreference/master/screenshot.png)
+
 Minimum values greater than 0 are made by translating values, e.g. setting the max of the SeekBar to `(max - min)`.
 Steps are done by dividing min and max values by the value of the step. The real value is then equals to `(SeekBar value + "stepped" minimum value) * step value`.
 
