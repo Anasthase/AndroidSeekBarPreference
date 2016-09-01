@@ -16,12 +16,12 @@ repositories {
     jcenter()
 }
 ````
-2. Add `compile''` to the module's `build.gradle` under the `dependencies` section:
+2. Add `compile 'org.anasthase:android-seekbar-preference:1.1'` to the module's `build.gradle` under the `dependencies` section:
 
 ````
 dependencies {
     {...}
-    compile ''
+    compile 'org.anasthase:android-seekbar-preference:1.1'
     {...}
 }
 ````
