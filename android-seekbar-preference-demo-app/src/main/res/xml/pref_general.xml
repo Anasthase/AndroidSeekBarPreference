@@ -1,0 +1,53 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <org.anasthase.androidseekbarpreference.SeekBarPreference
+        android:defaultValue="15"
+        android:key="preference_1"
+        android:summary="@string/Preference1Summary"
+        android:title="@string/Preference1Title"
+        app:format="@string/Preference1Format"
+        app:maxValue="25"
+        app:minValue="5"
+        app:stepValue="1" />
+
+    <org.anasthase.androidseekbarpreference.SeekBarPreference
+        android:defaultValue="75"
+        android:key="preference_2"
+        android:summary="@string/Preference2Summary"
+        android:title="@string/Preference2Title"
+        app:format="@string/Preference2Format"
+        app:maxValue="100"
+        app:minValue="0"
+        app:stepValue="5" />
+
+    <org.anasthase.androidseekbarpreference.SeekBarPreference
+        android:defaultValue="60"
+        android:key="preference_3"
+        android:summary="@string/Preference3Summary"
+        android:title="@string/Preference3Title"
+        app:format="@null"
+        app:maxValue="100"
+        app:minValue="0"
+        app:stepValue="5" />
+
+    <org.anasthase.androidseekbarpreference.SeekBarPreference
+        android:defaultValue="5"
+        android:key="preference_4"
+        android:title="@string/Preference4Title"
+        app:format="@string/Preference4Format"
+        app:maxValue="30"
+        app:minValue="1"
+        app:stepValue="1" />
+
+    <org.anasthase.androidseekbarpreference.SeekBarPreference
+        android:defaultValue="30"
+        android:key="preference_5"
+        android:summary="@string/Preference5Summary"
+        android:title="@string/Preference5Title"
+        app:format="@string/Preference5Format"
+        app:maxValue="55"
+        app:minValue="5"
+        app:stepValue="5" />
+
+</PreferenceScreen>

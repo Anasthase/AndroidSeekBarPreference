@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">SeekBarPreference demo</string>
+
+    <string name="Preference1Title">Example 1</string>
+    <string name="Preference1Summary">A preference starting from 5 to 25, with a step of 1.</string>
+    <string name="Preference1Format">%d mn</string>
+
+    <string name="Preference2Title">Example 2</string>
+    <string name="Preference2Summary">A preference starting from 0 to 100, with a step of 5.</string>
+    <string name="Preference2Format">%d%%</string>
+
+    <string name="Preference3Title">Example 3</string>
+    <string name="Preference3Summary">A preference without displaying the current value.</string>
+
+    <string name="Preference4Title">Example 4 without summary</string>
+    <string name="Preference4Format">%d kg</string>
+
+    <string name="Preference5Title">Example 5</string>
+    <string name="Preference5Summary">A preference with a very long summary, in order to be displayed on multiple lines. This of course depends on your screen size and density. The quick brown fox jumps over the lazy dog.</string>
+    <string name="Preference5Format">%d meters</string>
+</resources>

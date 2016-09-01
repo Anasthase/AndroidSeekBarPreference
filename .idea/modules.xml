@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AndroidSeekBarPreference.iml" filepath="$PROJECT_DIR$/AndroidSeekBarPreference.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-seekbar-preference/android-seekbar-preference.iml" filepath="$PROJECT_DIR$/android-seekbar-preference/android-seekbar-preference.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-seekbar-preference-demo-app/android-seekbar-preference-demo-app.iml" filepath="$PROJECT_DIR$/android-seekbar-preference-demo-app/android-seekbar-preference-demo-app.iml" />
+    </modules>
+  </component>
+</project>
