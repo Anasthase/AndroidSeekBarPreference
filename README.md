@@ -1,16 +1,34 @@
 # SeekBarPreference for Android
 
 A preference which display a SeekBar, and store the value as `int`.
-Support minimum values greater than 0, and "step" values.
+Support minimum and maximum values (positive or null), and steps.
 
 ![Screenshot](https://raw.githubusercontent.com/Anasthase/AndroidSeekBarPreference/master/screenshot.png)
 
-Minimum values greater than 0 are made by translating values, e.g. setting the max of the SeekBar to `(max - min)`.
-Steps are done by dividing min and max values by the value of the step. The real value is then equals to `(SeekBar value + "stepped" minimum value) * step value`.
-
 ## Usage
 
-In your preferences layout, add `xmlns:app="http://schemas.android.com/apk/res-auto"` along with the `xmlns:android`, then add the following:
+### Initial setup
+
+1. Be sure `jcenter()` is specified as a repository in your project's `build.gradle`:
+
+````
+repositories {
+    jcenter()
+}
+````
+2. Add `compile''` to the module's `build.gradle` under the `dependencies` section:
+
+````
+dependencies {
+    {...}
+    compile ''
+    {...}
+}
+````
+
+### In your preferences layout
+
+Add `xmlns:app="http://schemas.android.com/apk/res-auto"` along with the `xmlns:android`, then add the following:
 
 ```xml
 <org.anasthase.androidseekbarpreference.SeekBarPreference
@@ -30,6 +48,6 @@ Where:
 * `stepValue`: The value of the steps allowed for your preference.
 * `format`: The formatting string of the current value. If specified, must be a valid format string, as expected by `String.format()`. If not, only the value will be displayed. If `null`, the current value will not be displayed.
 
-Edge cases:
+### Edge cases
 * If `defaultValue` is lesser than `minValue` or greater than `maxValue`, it will be equal to `minValue`
 * If the current stored preference value if lesser than (respectively greater than) `minValue` (respectively `maxValue`), it will be displayed as `minValue` (respectively `maxValue`)
