@@ -16,12 +16,12 @@ repositories {
     jcenter()
 }
 ````
-2. Add `compile 'org.anasthase:android-seekbar-preference:1.1'` to the module's `build.gradle` under the `dependencies` section:
+2. Add `compile 'org.anasthase:android-seekbar-preference:1.2'` to the module's `build.gradle` under the `dependencies` section:
 
 ````
 dependencies {
     {...}
-    compile 'org.anasthase:android-seekbar-preference:1.1'
+    compile 'org.anasthase:android-seekbar-preference:1.2'
     {...}
 }
 ````
@@ -47,6 +47,7 @@ Where:
 * `maxValue`: The maximum value for the setting.
 * `stepValue`: The step value for for the setting.
 * `format`: The formatting string of the current value. If specified, must be a valid format string, as expected by `String.format()`, otherwise only the value will be displayed. If `null`, the current value will not be displayed.
+* `displayDividerValue`: A divider in order to display the value as a float value. If this is used, `format` must handle float values, like `%.2f`.</li>
 
 Be aware of the following edge cases:
 * If `minValue` is lesser than 0, it will be set to 0
