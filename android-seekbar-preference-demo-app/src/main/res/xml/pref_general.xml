@@ -50,4 +50,15 @@
         app:minValue="5"
         app:stepValue="5" />
 
+    <org.anasthase.androidseekbarpreference.SeekBarPreference
+        android:defaultValue="15"
+        android:key="preference_6"
+        android:summary="@string/Preference6Summary"
+        android:title="@string/Preference6Title"
+        app:format="%.1f db"
+        app:maxValue="30"
+        app:minValue="10"
+        app:stepValue="1"
+        app:displayDividerValue="10"/>
+
 </PreferenceScreen>

@@ -20,4 +20,7 @@
     <string name="Preference5Title">Example 5</string>
     <string name="Preference5Summary">A preference with a very long summary, in order to be displayed on multiple lines. This of course depends on your screen size and density. The quick brown fox jumps over the lazy dog.</string>
     <string name="Preference5Format">%d meters</string>
+
+    <string name="Preference6Title">Example 6</string>
+    <string name="Preference6Summary">A preference faking a float value, by using displayDividerValue.</string>
 </resources>

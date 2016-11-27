@@ -62,6 +62,7 @@ import android.widget.TextView;
  * <li><code>maxValue</code>: The maximum value for the setting.</li>
  * <li><code>stepValue</code>: The step value for for the setting.</li>
  * <li><code>format</code>: The formatting string of the current value. If specified, must be a valid format string, as expected by <code>String.format()</code>, otherwise only the value will be displayed. If <code>null</code>, the current value will not be displayed.</li>
+ * <li><code>displayDividerValue</code>: A divider in order to display the value as a float value. If this is used, <code>format</code> must handle float values, like <code>%.2f</code>.</li>
  * </ul>
  *
  * <p>Edge cases:</p>
@@ -80,6 +81,9 @@ public class SeekBarPreference extends Preference {
 	private int mMinValue;
 	private int mMaxValue;
 	private int mStepValue;	
+
+    private int mDisplayDividerValue;
+    private boolean mUseDisplayDividerValue;
 
 	private String mFormat;
 
@@ -111,6 +115,14 @@ public class SeekBarPreference extends Preference {
 			mStepValue = a.getInt(R.styleable.SeekBarPreference_stepValue, 1);
 
 			mDefaultValue = a.getInt(R.styleable.SeekBarPreference_android_defaultValue, 0);
+
+            if (a.hasValue(R.styleable.SeekBarPreference_displayDividerValue)) {
+                mUseDisplayDividerValue = true;
+                mDisplayDividerValue = a.getInt(R.styleable.SeekBarPreference_displayDividerValue, 1);
+            } else {
+                mUseDisplayDividerValue = false;
+                mDisplayDividerValue = 1;
+            }
 
             if (mMinValue < 0) {
                 mMinValue = 0;
@@ -377,7 +389,12 @@ public class SeekBarPreference extends Preference {
             String text;
 
             try {
-                text = String.format(mFormat, value);
+                if (mUseDisplayDividerValue) {
+                    float floatValue = (float) value / mDisplayDividerValue;
+                    text = String.format(mFormat, floatValue);
+                } else {
+                    text = String.format(mFormat, value);
+                }
             } catch (IllegalFormatException e) {
                 text = Integer.toString(value);
             }
